@@ -1,0 +1,7 @@
+# 
+applications:
+  - name: my-node
+    buildpack: nodejs_buildpack
+    command:  node server.js
+    memory: 128M
+    stack: cflinuxfs2
