@@ -5,3 +5,5 @@ applications:
     command:  node server.js
     memory: 128M
     stack: cflinuxfs2
+services:
+  - my-assets
