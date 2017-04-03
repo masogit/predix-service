@@ -1,0 +1,27 @@
+{
+  "name": "predix-service",
+  "version": "1.0.0",
+  "description": "create node rest service consume predix service",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masogit/predix-service.git"
+  },
+  "keywords": [
+    "predix",
+    "rest"
+  ],
+  "author": "maso",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/masogit/predix-service/issues"
+  },
+  "homepage": "https://github.com/masogit/predix-service#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
