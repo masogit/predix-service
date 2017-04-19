@@ -1,11 +1,30 @@
-const express = require('express')
-const server = express()
-const port = process.env.PORT || 3000
+const express = require('express');
+const httpProxy = require('http-proxy');
+const path = require('path');
+const server = express();
+const port = process.env.PORT || 8080
+const remote = "https://apmgw.ittun.com"
 
-server.use('*', (req, res) => {
-  res.json({
-    test: 'abc'
-  })
+const proxy = httpProxy.createProxyServer({secure: false});
+proxy.on('error', function(e) {
+  console.log(e);
+});
+proxy.on('proxyReq', function(proxyReq, req, res, options) {
+  console.log('proxyReq');
+  console.log(options);
+});
+
+server.use(express.static(path.join(__dirname, '/dist')));
+
+server.use('/gateway', (req, res) => {
+  proxy.web(req, res, { target: remote, pathRewrite: {'^/gateway' : ''}, changeOrigin: true });
 })
 
-server.listen(port, () => console.log(`Express Server started on ${port}`))
+server.use('*', function (req, res, next) {
+  res.sendFile(path.join(__dirname + '/dist/index.html'))
+});
+
+
+server.listen(port, function () {
+  console.log(`Example app listening on port ${port}!`)
+});
