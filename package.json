@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/masogit/predix-service#readme",
   "dependencies": {
+    "compression": "^1.6.2",
     "express": "^4.15.2",
     "http-proxy": "^1.16.2"
   }
