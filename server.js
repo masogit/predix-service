@@ -3,7 +3,7 @@ const httpProxy = require('http-proxy');
 const path = require('path');
 const server = express();
 const port = process.env.PORT || 8080
-const remote = "https://apmgw.ittun.com"
+const remote = "http://apm-uat.hcdigital.com.cn:8090"
 
 const proxy = httpProxy.createProxyServer({secure: false});
 proxy.on('error', function(e) {
